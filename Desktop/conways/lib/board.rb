@@ -2,12 +2,6 @@ class Board
   attr_reader :spaces
   @@spaces = []
 
-  def initialize(x_cells, y_cells)
-    @x_cells = x_cells
-    @y_cells = y_cells
-    @@spaces = []
-  end
-
   def Board.make_board(x_cells, y_cells)
     new_board = Board.new(x_cells, y_cells)
 
@@ -26,5 +20,12 @@ class Board
   def Board.clear
     @@spaces = []
   end
+
+  def initialize(x_cells, y_cells)
+    @x_cells = x_cells
+    @y_cells = y_cells
+    @@spaces = []
+  end
+
 
 end

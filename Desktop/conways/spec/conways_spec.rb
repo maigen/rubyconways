@@ -1,26 +1,30 @@
 require 'rspec'
-require 'cell'
+
 require 'spaces'
 require 'board'
 
-describe 'Cell' do
-  describe 'initialize' do
-    it 'initializes a class Cell' do
-      test_cell = Cell.new()
-      test_cell.should be_an_instance_of Cell
-    end
-    it 'is dead when it is initialized' do
-      test_cell = Cell.new()
-      test_cell.status.should eq false
-    end
-  end
-end
+
 
 describe 'Space' do
   describe 'initialize' do
     it 'is initialized with coordinates when the game starts' do
       test_space = Space.new(1,2)
       test_space.should be_an_instance_of Space
+    end
+    it 'is dead when it is initialized' do
+      test_space = Space.new(2,2)
+      test_space.status.should eq false
+    end
+  end
+  describe 'life_change' do
+    it 'changes a cells life status to the opposite' do
+      test_space = Space.new(3,3)
+      test_space.life_change.should eq true
+    end
+    it 'changes a cells life status to the opposite' do
+      test_space = Space.new(3,3)
+      test_space.life_change
+      test_space.life_change.should eq false
     end
   end
 end
@@ -58,11 +62,10 @@ describe 'Board' do
     end
   end
 
-  # describe 'neighbors' do
-  #   it 'is initialized with '
-  #   it 'finds its own neighbors and returns them in an array' do
-  #     test_space = Space.new(3,3)
-  #     test_space.neighbors(3,3).should eq [[2,2], [2,3] , [2,4], [3,2], [3,4], [4,2], [4,3], [4,4]]
-  #   end
-  # end
+  describe 'neighbors_alive' do
+    it 'examines its neighbors to see how many are alive or dead' do
+      test_space = Space.new(3,3)
+
+    end
+  end
 end
